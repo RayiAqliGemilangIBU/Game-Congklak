@@ -1,3 +1,3 @@
 public enum TypeHole {
-    Normal, Bank
+    NORMAL, BANK
 }
