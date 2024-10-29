@@ -1,31 +1,27 @@
 public class Hole {
-
-    private int seedCount;
     private TypeHole type;
+    private int seedCount;
 
-    public Hole(int seed, TypeHole aType){
-        this.seedCount = seed;
-        this.type = aType;
+    public Hole(TypeHole type, int initialSeeds) {
+        this.type = type;
+        this.seedCount = initialSeeds;
     }
 
-    public int getSeedCount(){
+    public int getSeedCount() {
         return seedCount;
     }
 
-    public void setSeedCount(int seedCount){
-        this.seedCount = seedCount;
+    public void addSeed() {
+        seedCount++;
+    }
+
+    public int takeSeeds() {
+        int seeds = seedCount;
+        seedCount = 0;
+        return seeds;
     }
 
     public TypeHole getType() {
         return type;
-    }
-
-    public void addSeeds(int count){
-        this.seedCount += count;
-    }
-    public int takeAllSeeds(){
-        int takenSeeds = seedCount;
-        seedCount = 0;
-        return takenSeeds;
     }
 }
