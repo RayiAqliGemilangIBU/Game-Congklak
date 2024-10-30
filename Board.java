@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Board {
@@ -81,6 +82,12 @@ public class Board {
             counter++; // Tambah counter jika player dapat giliran lagi
             System.out.println("Player " + currentPlayer + " continues the turn from hole " + (index + 1));
             playTurn(index); // Lanjutkan giliran pemain
+        } else if ((currentPlayer == 1 && index == 7) || (currentPlayer == 2 && index == 15)) {
+            System.out.println("Player " + currentPlayer + " earned an extra turn!");
+            counter++; // Tambah counter jika player dapat giliran lagi
+            System.out.println("Player " + currentPlayer + ", choose a hole to start your bonus turn:");
+            int bonusHole = new Scanner(System.in).nextInt() - 1;
+            playTurn(bonusHole); // Lanjutkan giliran dari lubang yang dipilih
         } else {
             // Ganti giliran ke pemain lain dan reset counter
             currentPlayer = (currentPlayer == 1) ? 2 : 1;
